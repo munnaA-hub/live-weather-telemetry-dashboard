@@ -25,12 +25,11 @@ Technical Highlights
 Core Focus: Fully interactive client-side weather monitoring built specifically to manage marina microclimate conditions and live station telemetry.
 
 #Language Breakdown:
+CSS: 38.2% (Custom UI styling and responsive layouts)
 
-CSS: 38.2%
+JavaScript: 34.7% (Telemetry logic and calculation engine)
 
-JavaScript: 34.7%
-
-HTML: 27.1%
+HTML: 27.1% (Semantic structure and layout skeleton)
 
 #Production Links:
 
