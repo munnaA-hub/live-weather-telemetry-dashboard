@@ -9,6 +9,5 @@ Project Features:
 
 Production Links:
 
-Live Website URL: https://live-weather-telemetry-dashboard.netlify.app
-
+Live Website URL: https://darling-gingersnap-272508.netlify.app/
 GitHub Repository: https://github.com/munnaA-hub/live-weather-telemetry-dashboard
