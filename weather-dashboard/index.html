@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marina Analytics | Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="dashboard-root">
+    <header class="dashboard-header">
+      <h1>Live Weather Telemetry</h1>
+    </header>
+
+    <section aria-label="Station Search Pipeline">
+      <form id="weather-lookup-form" novalidate>
+        <div class="field-group">
+          <label for="station-input" class="field-label">Station Identifier / Location</label>
+          <div class="field-control-row">
+            <input 
+              type="text" 
+              id="station-input" 
+              required 
+              aria-required="true"
+              aria-describedby="validation-error-msg"
+              placeholder="e.g., Newport Marina East"
+              autocomplete="off"
+            >
+            <button type="submit" class="btn-primary">Query Station</button>
+          </div>
+          <span id="validation-error-msg" class="field-error-text" role="alert">
+            Invalid input syntax. Use alphanumeric values, spaces, commas, or periods.
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <section class="state-container" aria-live="polite">
+      <div id="ui-loading-spinner" class="ui-state-spinner" role="status">
+        <span class="spinner-element"></span>
+        <span class="spinner-text">Resolving telemetry matrix...</span>
+      </div>
+
+      <div id="ui-empty-state" class="ui-state-empty" role="status">
+        No active telemetry tracks found matching the designated station.
+      </div>
+
+      <article id="ui-data-view" class="telemetry-card">
+        <header class="card-header">
+          <h3 id="render-station-title" class="station-title">--</h3>
+        </header>
+        <div class="telemetry-grid">
+          <div class="metric-tile">
+            <span class="tile-label">Air Temperature</span>
+            <span id="metric-temp" class="tile-value">--</span>
+          </div>
+          <div class="metric-tile">
+            <span class="tile-label">Wind Velocity</span>
+            <span id="metric-wind" class="tile-value">--</span>
+          </div>
+          <div class="metric-tile">
+            <span class="tile-label">Wave Height</span>
+            <span id="metric-waves" class="tile-value">--</span>
+          </div>
+          <div class="metric-tile">
+            <span class="tile-label">Barometric Pressure</span>
+            <span id="metric-pressure" class="tile-value">--</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-surface: #fdfdfd;
+  --border-muted: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-solid: #000000;
+  --accent-error: #ef4444;
+  --accent-focus: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: var(--text-main);
+  padding: 40px 16px;
+  line-height: 1.4;
+}
+
+.dashboard-root {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bg-main);
+  padding: 32px;
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.dashboard-header {
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--text-main);
+  padding-bottom: 12px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#weather-lookup-form {
+  margin-bottom: 32px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.field-control-row {
+  display: flex;
+  gap: 12px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  background: var(--bg-main);
+}
+
+input[type="text"]:focus {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: -2px;
+}
+
+input[type="text"].input-invalid {
+  border: 2px solid var(--accent-error);
+  background-color: #fef2f2;
+}
+
+.field-error-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-error);
+  display: none;
+}
+
+.btn-primary {
+  background: var(--accent-solid);
+  color: var(--bg-main);
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:focus-visible { outline: 2px solid var(--accent-focus); outline-offset: 2px; }
+
+.state-container { margin-top: 32px; }
+.ui-state-spinner { display: none; text-align: center; padding: 24px 0; }
+
+.spinner-element {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  border: 2px solid var(--border-muted);
+  border-top-color: var(--accent-solid);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.spinner-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: 12px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ui-state-empty {
+  display: none;
+  padding: 32px;
+  text-align: center;
+  border: 1px dashed #cbd5e1;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.telemetry-card {
+  display: none;
+  border: 1px solid var(--border-muted);
+  background: var(--bg-surface);
+}
+
+.card-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-muted);
+  background: #fff;
+}
+
+.station-title { font-size: 1rem; font-weight: 700; color: var(--text-main); text-transform: capitalize; }
+.telemetry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: -1px; }
+.metric-tile { padding: 24px; border: 1px solid var(--border-muted); background: #fff; }
+
+.tile-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.tile-value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+@media(max-width: 560px) {
+  .telemetry-grid { grid-template-columns: 1fr; }
+  .field-control-row { flex-direction: column; }
+  .btn-primary { padding: 12px; }
+}
